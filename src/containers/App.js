@@ -25,12 +25,18 @@ class App extends Component {
     console.log('[App.js] getDerivedStateFromProps', props);
     return state;
   }
-  componentWillMount(){
-    console.log('APP.js componentWillMount')
-
-  }
+  // componentWillMount(){
+  //   console.log('APP.js componentWillMount old version')
+  // }
   componentDidMount(){
     console.log('APP.js componentDidMount')
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    console.log('App.js shouldComponentUpdate')
+    return true
+  }
+  componentDidUpdate(){
+    console.log('APP.js componentDidUpdate')
   }
   nameChangedHandler = ( event, id ) => {
     const personIndex = this.state.persons.findIndex( p => {
