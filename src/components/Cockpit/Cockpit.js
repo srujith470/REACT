@@ -3,6 +3,15 @@ import React, {useEffect} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
+    useEffect(() =>{
+      console.log('cockpit.js useEffect')
+      const timer = setTimeout(() => {
+        alert('save data ')
+      }, 1000);
+      return(() => {
+        clearTimeout(timer)
+      })
+    }, [props.persons])
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
